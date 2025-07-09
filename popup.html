@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regional Translator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      width: 500px !important;
+      min-width: 500px !important;
+      max-width: 500px !important;
+      height: 100% !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background-clip: border-box !important;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e6eef3 0%, #b6c9d6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 8px 32px 0 rgba(27,60,83,0.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(27,60,83,0.12);
+      padding: 2.5rem 2rem 2rem 2rem;
+      width: 100%;
+      position: relative;
+    }
+    .header-icon {
+      color: #1B3C53;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 0.7rem;
+    }
+    .header-bar {
+      height: 5px;
+      width: 48px;
+      background: linear-gradient(90deg,#1B3C53,#274d6b);
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    .glass-input {
+      background: rgba(230,238,243,0.7);
+      border: 1.5px solid #b6c9d6;
+      border-radius: 1rem;
+      font-size: 18px;
+      color: #1B3C53;
+      box-shadow: 0 2px 8px rgba(27,60,83,0.04);
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      width: 100%;
+      resize: none;
+      transition: border 0.2s;
+    }
+    .glass-input:focus {
+      border: 1.5px solid #1B3C53;
+      outline: none;
+    }
+    .glass-select {
+      background: rgba(230,238,243,0.7);
+      border: 1.5px solid #b6c9d6;
+      border-radius: 1rem;
+      color: #1B3C53;
+      font-size: 1rem;
+      padding: 0.7rem 1.2rem;
+      margin-right: 0.7rem;
+      box-shadow: 0 2px 8px rgba(27,60,83,0.04);
+      transition: border 0.2s;
+    }
+    .glass-select:focus {
+      border: 1.5px solid #1B3C53;
+      outline: none;
+    }
+    .glass-btn {
+      background: linear-gradient(90deg,#1B3C53,#274d6b);
+      color: #fff;
+      border: none;
+      border-radius: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.7rem 2.2rem;
+      box-shadow: 0 2px 8px rgba(27,60,83,0.10);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .glass-btn:hover {
+      background: linear-gradient(90deg,#274d6b,#1B3C53);
+      transform: translateY(-2px) scale(1.03);
+    }
+    .result-area {
+      background: #d3e3ed;
+      color: #1B3C53;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.7rem 0;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(27,60,83,0.07);
+      min-height: 2.5rem;
+      word-break: break-word;
+    }
+    .footer {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #8ca0b3;
+      letter-spacing: 0.01em;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <div class="flex items-center mb-2">
+      <svg class="header-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m0 4v12m0 0l-3-3m3 3l3-3"/></svg>
+      <h1 class="text-2xl font-extrabold tracking-tight" style="color:#1B3C53;">Regional Translator</h1>
+    </div>
+    <div class="header-bar"></div>
+    <textarea id="inputText" class="glass-input" rows="3" placeholder="Enter or paste text..."></textarea>
+    <div class="flex items-center mb-4">
+      <select id="language" class="glass-select">
+        <option value="de">German</option>
+        <option value="kn">Kannada</option>
+        <option value="hi">Hindi</option>
+        <option value="ml">Malayalam</option>
+        <option value="ta">Tamil</option>
+      </select>
+      <button id="translateBtn" class="glass-btn">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        Translate
+      </button>
+    </div>
+    <div id="result" class="result-area"></div>
+    <div class="footer">Powered by AI Translator</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
