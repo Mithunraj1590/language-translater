@@ -77,6 +77,6 @@ Or download the ZIP and extract it.
 
 ---
 
-## License
+## By Mithun raj
 
-MIT License
+
